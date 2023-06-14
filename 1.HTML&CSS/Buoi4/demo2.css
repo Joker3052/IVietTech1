@@ -1,0 +1,48 @@
+*{
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+header{
+    background: green;
+    padding: 70px;
+    color: white;
+    height: 30%;
+}
+/* main,section,aside{
+    padding: 70px;
+} */
+/* main{
+    background: brown;
+    padding: 100px;
+    clear: both;
+} */
+section,aside{
+    height: 200px;
+}
+section{
+    width: 40%;
+    background: yellow;
+    float: left;
+}
+aside:first-child{
+    width: 30%;
+    float: left;
+    background: blue;
+}
+aside:last-child{
+    width: 30%;
+    float: right;
+    background: blue;
+}
+button{
+    position: fixed;
+    bottom:50px;
+    left: 20px;
+    border-radius: 50%;
+}
+footer{
+    background: rgb(111, 223, 111);
+    clear: both;
+    height: 80px;
+    column-count: 3;
+    column-gap: 50px;
+}

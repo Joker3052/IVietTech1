@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form2.css">
+</head>
+<body>
+    <header></header>
+    <main>
+        <form>
+            <h2>Course Registration</h2>
+            <input type="text" id="fullname" name="fullname" placeholder="full name" required pattern="[a-zA-Z\s]+" title="Fullname field doesn’t include any number and not be empty">
+            <input type="email" id="email" name="email" placeholder="email address" required>    
+            <input type="tel" id="phone" name="phone" placeholder=" phone number" required pattern="[0-9]+" title="Phone number field isn’t empty and only accepts number"> 
+            <label for="selectcourse">Select Course:</label>
+            <select id="selectcourse" name="selectcourse" required>
+              <option value="">Please select a course</option>
+              <option value="course1">Course 1</option>
+              <option value="course2">Course 2</option>
+              <option value="course3">Course 3</option>
+            </select>
+            <textarea id="note" name="note" placeholder="note"></textarea>
+          
+            <input type="submit" value="Submit">
+          </form>
+          
+          
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

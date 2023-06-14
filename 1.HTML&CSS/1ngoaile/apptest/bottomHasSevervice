@@ -1,0 +1,78 @@
+package com.example.fire_warning_app
+
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
+import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+class Bottom : AppCompatActivity() {
+    private lateinit var sharedPref: SharedPreferences
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var alarmImg: ImageView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_bottom)
+
+        sharedPref = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
+
+        bottomNavigationView = findViewById(R.id.bottomNavigationView)
+        alarmImg = findViewById(R.id.alarm_img)
+        val fireDetectedValue = sharedPref.getBoolean("fireDetectedValue", false)
+
+        if (fireDetectedValue) {
+            alarmImg.visibility = View.VISIBLE
+        } else {
+            alarmImg.visibility = View.GONE
+        }
+
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.layout_Home -> {
+                    val homeFragment = UI_main()
+                    replaceFragment(homeFragment)
+                    true
+                }
+                R.id.layout_History -> {
+                    val historyFragment = ImageListActivity()
+                    replaceFragment(historyFragment)
+                    true
+                }
+                R.id.layout_Sound -> {
+                    val soundFragment = SoundActivity()
+                    replaceFragment(soundFragment)
+                    true
+                }
+                R.id.layout_info -> {
+                    val infoFragment = Info()
+                    replaceFragment(infoFragment)
+                    true
+                }
+                else -> false
+            }
+        }
+
+        bottomNavigationView.selectedItemId = R.id.layout_Home
+
+        startForegroundService()
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
+
+    private fun startForegroundService() {
+        val serviceIntent = Intent(this, ForegroundService::class.java)
+        val fireDetectedValue = sharedPref.getBoolean("fireDetectedValue", false)
+        serviceIntent.putExtra("fireDetectedValue", fireDetectedValue)
+        ContextCompat.startForegroundService(this, serviceIntent)
+    }
+}

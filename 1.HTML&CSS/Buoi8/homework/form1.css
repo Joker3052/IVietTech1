@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #4267B2;
+    color: white;
+    display: flex;
+  justify-content: space-around;
+  align-items: center;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  .header-info{
+    display: flex;
+    flex-direction: column;
+  }
+  .header-right h6 {
+    margin-bottom: 5px;
+    margin-left: 10px;
+  }
+  .header-info input[type="email"], 
+  .header-info input[type="password"], 
+  .header-info input[type="submit"] {
+    margin-left: 10px;
+    display: inline-block;
+  }
+  header-right input[type="submit"] {
+    margin-left: 10px;
+    height: 10px;
+  }
+  /* ////////////////////////////////////   */ 
+  
+
+  
+  
+  /* /////////////////////////////////////// */
+  
+  
+ 
+  main {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  .main-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .main-email{
+    display: flex;
+    flex-direction: column;
+  }
+  /* .main-name input[type="text"] {
+    display: inline-block;
+    padding: 5px;
+    margin-right: 10px;
+    width: calc(50% - 5px);
+  } */
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: right;
+  }
+ 
+  label {
+    font-weight: bold;
+    /* margin-right: 10px; */
+    /* text-align: left; */
+  }
+  input[type="text"] {
+    display: inline-block;
+    /* hiển thị input trên cùng một dòng */
+    margin-right: 10px; /* tạo khoảng cách giữa các input */
+  }
+  input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type="submit"] {
+    background-color: #1877f2;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #145da0;
+  }
+  
+  footer {
+    text-align: center;
+    background-color: #e9ebee;
+    padding: 10px;
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    font-size: 12px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    main {
+      margin: 10px;
+      padding: 10px;
+    }
+  }
+  

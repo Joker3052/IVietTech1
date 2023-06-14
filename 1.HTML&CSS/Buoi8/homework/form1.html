@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng nhập giống Facebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="form1.css">
+</head>
+<body>
+  <header>
+    <h1>Facebook</h1>
+    <div class="header-right">
+      <div class="header-info">
+        <h6>email</h6>
+        <input type="email" id="email" placeholder="Email" name="email" required />
+      </div>
+      <div class="header-info">
+        <h6>password</h6>
+        <input type="password" placeholder="password" id="password" name="password" minlength="8" required>
+      </div>
+      <div class="header-info">
+        <input id="login" type="submit" value="login" />
+      </div>
+    </div>
+  </header>
+  <main>
+    <form>
+      <div class="main-name">
+        <input type="text" id="first-name" placeholder="First name" name="first-name" required maxlength="20" pattern="[A-Za-z]+" />
+        <input type="text" id="last-name" placeholder="Last name" name="last-name" required maxlength="20" pattern="[A-Za-z]+" />
+      </div>
+      <div class="main-email">
+        <input type="email" id="email" placeholder="Email" name="email" required />
+        <input type="email" id="re-enter" placeholder="Re-enter email" name="re-enter" required />
+      </div>
+      <div class="main-password">
+        <input type="password" placeholder="password" id="password" name="password" minlength="8" required>
+      </div>
+      <label for="birthday">Birthday</label>
+      <input type="date" id="birthday" name="birthday" required />
+      <div class="main-gender">
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+      </div>
+      <div class="main-signup">
+        <input type="submit" value="Sign Up" />
+      </div>
+    </form>
+  </main>
+  <footer>
+    &copy; 2023 Facebook
+  </footer>
+</body>
+</html>

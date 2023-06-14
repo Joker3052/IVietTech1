@@ -1,0 +1,131 @@
+class UI_main : AppCompatActivity() {
+
+    @SuppressLint("MissingInflatedId")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_ui_main)
+        val sharedPreferences = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE)
+        val layout_info: LinearLayout = findViewById(R.id.layout_info)
+        val layout_History: LinearLayout = findViewById(R.id.layout_History)
+        val layout_Sound: LinearLayout = findViewById(R.id.layout_Sound)
+        // Khởi tạo UserApi
+        val userRetrofit = Retrofit.Builder()
+            .baseUrl("https://anor.pythonanywhere.com/user/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+       var  userApi = userRetrofit.create(UserApi::class.java)
+
+        // Khởi tạo SensorApi
+        val sensorRetrofit = Retrofit.Builder()
+            .baseUrl("https://anor.pythonanywhere.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        var sensorApi = sensorRetrofit.create(SensorApi::class.java)
+        val sharedPref = getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE)
+        val email = sharedPref.getString("email", null)
+
+        val handler = Handler(Looper.getMainLooper())
+        val delayMillis2 = 2000L
+        val delayMillis1 = 1000L
+        userApi.getUsers().enqueue(object: Callback<List<User>> {
+            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+                val users = response.body()
+                if (users != null) {
+                    // Tìm kiếm người dùng có email cần tìm
+                    val emailToFind = email
+                    val foundUser = users.find { it.email == emailToFind }
+                    if (foundUser != null) {
+                        // Lấy thông tin người dùng
+                        val userId = foundUser.id
+                        val username = foundUser.username
+                        val password = foundUser.password
+                        // Tiếp tục xử lý tại đây
+                        val editor = sharedPref.edit()
+                        editor.putString("username", username)
+                        editor.putString("password", password)
+                        editor.apply()
+
+                        val etusername: TextView = findViewById(R.id.et_user_name)
+                        etusername.text = username
+                    }
+                } else {
+                    Toast.makeText(this@UI_main, "failed?", Toast.LENGTH_SHORT).show()
+                }
+                // Gọi lại API sau 2 giây
+                handler.postDelayed({
+                    userApi.getUsers().enqueue(this)
+                }, delayMillis2)
+            }
+            override fun onFailure(call: Call<List<User>>, t: Throwable) {
+                // Xử lý lỗi tại đây
+
+                // Gọi lại API sau 2 giây khi có lỗi xảy ra
+                handler.postDelayed({
+                    userApi.getUsers().enqueue(this)
+                }, delayMillis2)
+            }
+        })
+
+        sensorApi.getSensorData().enqueue(object : Callback<SensorApi.SensorData> {
+            override fun onResponse(
+                call: Call<SensorApi.SensorData>,
+                response: Response<SensorApi.SensorData>
+            ) {
+                if (response.isSuccessful) {
+                    val sensorData = response.body()
+                    if (sensorData != null) {
+                        // Xử lý dữ liệu cảm biến ở đây
+                        val fireDetectedValue = sensorData.fireDetectedValue
+                        val smokeValue = sensorData.smokeValue
+                        val temperatureValue = sensorData.temperatureValue
+
+                        // Lưu giá trị smokeValue và temperatureValue vào SharedPreferences
+                        val editor = sharedPref.edit()
+                        editor.putFloat("smokeValue", smokeValue)
+                        editor.putFloat("temperatureValue", temperatureValue)
+                        editor.putBoolean("fireDetectedValue", fireDetectedValue)
+                        editor.apply()
+
+                        // Tiếp tục xử lý và cập nhật giao diện
+                        // Ví dụ: Hiển thị giá trị smokeValue và temperatureValue lên TextView
+                        val smokeTextView: TextView = findViewById(R.id.sensor_gas)
+                        val temperatureTextView: TextView = findViewById(R.id.sensor_temp)
+                        smokeTextView.text = smokeValue.toString() + " V"
+                        temperatureTextView.text = temperatureValue.toString() + " ℃"
+                    }
+                } else {
+                    // Xử lý lỗi khi không thành công
+                    Toast.makeText(this@UI_main, "sensor failed", Toast.LENGTH_SHORT).show()
+                }
+
+                // Gọi lại API sau 1 giây
+                handler.postDelayed({
+                    sensorApi.getSensorData().enqueue(this)
+                }, delayMillis1)
+            }
+            override fun onFailure(call: Call<SensorApi.SensorData>, t: Throwable) {
+                // Xử lý lỗi kết nối
+                Toast.makeText(this@UI_main, "Sensor failed", Toast.LENGTH_SHORT).show()
+
+                // Gọi lại API sau 1 giây khi có lỗi xảy ra
+                handler.postDelayed({
+                    sensorApi.getSensorData().enqueue(this)
+                }, delayMillis1)
+            }
+        })
+        layout_info.setOnClickListener {
+            val intent = Intent(this, Info::class.java)
+            startActivity(intent)
+        }
+        layout_History.setOnClickListener {
+            val intent = Intent(this, ImageListActivity::class.java)
+            startActivity(intent)
+        }
+        layout_Sound.setOnClickListener {
+            val intent = Intent(this, SoundActivity::class.java)
+            startActivity(intent)
+        }
+
+    }
+
+}

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-xwFpWsZyZF3ie3pO3S1rzL3XgOGIl+LJsZaxxkj4hWclgXYfJhRMIcH6UVTqn6Uu" crossorigin="anonymous"> -->
+    <title>Internal style sheet-iVietTech - Chuyên đào tạo CNTT</title>
+    <style>
+        /* Thiết lập font chữ và màu sắc */
+body {
+    font-family: Arial, sans-serif;
+    /* color: purple; */
+    background-color: #fff;
+  }
+  
+  /* Thiết lập  header */
+  header{
+    padding: 1em;
+    background-color: rgb(248, 248, 248);
+    color: rgb(0, 0, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+  
+  .btn_search {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .btn_search i {
+    font-size: 20px;
+    vertical-align: middle;
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    font-size: 2.5em;
+    text-decoration: none;
+  }
+  .register-button {
+    background-color: #ee3737;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .register-button:hover {
+    background-color: #6b1b1b;
+  }
+  
+  
+  /* Thiết lập kiểu cho menu */
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 1em;
+  }
+  
+  nav li a {
+    color: #000000;
+    text-decoration: none;
+  }
+  nav li a:hover {
+    color: #ee3737;
+  }
+  /* Thiết lập main */
+  main{
+    padding-top: 100px
+  }
+  /* các khóa học */
+ 
+  .course-item {
+    display: inline-block;
+    width: 300px;
+    margin: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .course-item :hover{
+    opacity: 0.8;
+  }
+  .course-item a {
+    display: block;
+    text-decoration: none;
+  }
+  
+  .course-image {
+    height: 200px;
+    max-height: 100%;
+    overflow: hidden;
+  }
+  
+  .course-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .course-info {
+    height: 100%;
+    padding: 20px;
+    background-color: rgb(221, 103, 103);
+    color: #ddd;
+  }
+  
+  .course-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .course-info p {
+    margin: 0;
+  }
+  
+  
+  /* ------------------------------------------------- */
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .box {
+    width: 200px;
+    height: 200px;
+    background-color: #ddd;
+    margin-right: 20px;
+    display: block;
+    cursor: pointer;
+  }
+  
+   /* Thiết lập   footer */
+  footer {
+    padding: 1em;
+    background-color: rgb(233, 63, 63);
+    color: rgb(253, 253, 253);
+  }
+    </style>
+  </head>
+  <body>
+    <header>
+        <div > <a href="#" class="logo" title="iviettech">&copy;iViettech</a></div>
+        <nav>
+          <ul>
+            <li><a href="#">Các khóa học </a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Trang vàng HV</a></li>
+            <li><a href="#">Việc làm</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><button class="btn_search"><i class="fa-solid fa-magnifying-glass" style="color: black;"></i></button></li>
+            <li><button class="register-button">Đăng kí học</button></li>
+          </ul>
+        </nav>
+      </header>
+    <main >
+      <!-- introduce pic -->
+      <div class="introduce_pic">
+        <a href="">
+            <img src="intro_pic.png" alt="Mô tả ảnh">
+          </a>
+      </div>
+      <!-- Feature layout -->
+      <!-- Lịch khai giảng -->
+      <div class="container">
+        <div class="course-item">
+          <a href="#">
+            <div class="course-image">
+              <img src="c1.png" alt="Course Image">
+            </div>
+            <div class="course-info">
+              <h3>Khóa học lập trình</h3>
+              <p>Mô tả khóa học lập trình</p>
+            </div>
+          </a>
+        </div>
+        <div class="course-item">
+          <a href="#">
+            <div class="course-image">
+              <img src="c2.png" alt="Course Image">
+            </div>
+            <div class="course-info">
+              <h3>Khóa học lập trình</h3>
+              <p>Mô tả khóa học lập trình</p>
+            </div>
+          </a>
+        </div>
+        <div class="course-item">
+          <a href="#">
+            <div class="course-image">
+              <img src="c3.png" alt="Course Image">
+            </div>
+            <div class="course-info">
+              <h3>Khóa học lập trình</h3>
+              <p>Mô tả khóa học lập trình</p>
+            </div>
+          </a>
+        </div>
+        <div class="course-item">
+          <a href="#">
+            <div class="course-image">
+              <img src="c4.png" alt="Course Image">
+            </div>
+            <div class="course-info">
+              <h3>Khóa học lập trình</h3>
+              <p>Mô tả khóa học lập trình</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    
+
+    </main>
+    <footer>
+      <p>&copy; iVietTech </p>
+    </footer>
+  </body>
+</html>

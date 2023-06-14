@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fixed Header with Sidebar</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 50px;
+			background-color: #333;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			padding: 0 20px;
+		}
+		
+		header img {
+			height: 30px;
+			margin-right: 20px;
+		}
+		
+		nav {
+			margin-left: auto;
+		}
+		
+		nav ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+		}
+		
+		nav li {
+			margin: 0 10px;
+		}
+		
+		nav a {
+			color: #fff;
+			text-decoration: none;
+			font-weight: bold;
+		}
+		
+		aside {
+			float: left;
+			width: 25%;
+			padding: 20px;
+			background-color: #f1f1f1;
+		}
+		
+		article {
+			float: right;
+			width: 75%;
+			padding: 20px;
+		}
+		
+		article h2 {
+			margin-top: 0;
+		}
+		
+		article p {
+			line-height: 1.5;
+		}
+		
+		footer {
+			clear: both;
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		
+		.scroll-top {
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+			background-color: #333;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 5px;
+			display: none;
+		}
+		
+		.scroll-top:hover {
+			cursor: pointer;
+		}
+		
+		.scroll-top.show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<img src="logo.png" alt="Logo">
+		<nav>
+			<ul>
+				<li><a href="#">Menu 1</a></li>
+				<li><a href="#">Menu 2</a></li>
+				<li><a href="#">Menu 3</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<aside>
+		<h2>Sidebar</h2>
+		<p>Sidebar content goes here...</p>
+	</aside>
+	
+	<article>
+		<h1>Article Title</h1>
+		<img src="article.jpg" alt="Article Image">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar, quam non dictum tristique, velit tellus interdum ipsum, at dapibus urna quam et elit. Proin malesuada, metus id volutpat ultricies, neque ex interdum lacus, at tempor nisl urna eget libero.</p>
+		<h2>Recommended Articles</h2>
+		<ul>
+			<li><a href="#">Recommended Article 1</a></li>
+			<li><a href="#">Recommended Article 2</a></li>
+		</ul>
+	</article>
+	
+	

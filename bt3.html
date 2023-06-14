@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var Ho = prompt("Enter Họ :");
+        var Dem = prompt("Enter Tên  Đệm :");
+        var Ten = prompt("Enter Tên :");
+        var Gender = prompt("Enter Giới Tính:");
+        var NamSinh = parseInt(prompt("Enter Năm sinh:"));
+    
+        var Tuoi = new Date().getFullYear() - NamSinh;
+    
+        document.write("<ul>");
+        document.write("<li>Họ: " + Ho + "</li>");
+        document.write("<li>Tên đệm: " + Dem + "</li>");
+        document.write("<li>Tên: " + Ten + "</li>");
+        document.write("<li>Giới tính: " + Gender + "</li>");
+        document.write("<li>Tuổi: " + Tuoi + "</li>");
+        document.write("</ul>");
+    </script>
+    
+    
+</body>
+</html>

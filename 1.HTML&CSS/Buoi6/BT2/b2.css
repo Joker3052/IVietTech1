@@ -1,0 +1,40 @@
+header,main,footer{
+    padding: 20px;
+    border: 1px solid gray;
+}
+header{
+    height: 250px;
+    align-items: center;
+}
+header nav  ul{
+    height: 100%;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+header nav ul li{
+    background: rgb(34, 129, 207);
+    color: white;
+    border-radius: 16%;
+    border: 2px solid rgb(128, 162, 212);
+    padding: 10px;
+    font-family: sans-serif;
+    /* width: 10000px; */
+    /* flex-basis: calc(100% / 4);  */
+    text-align: center;
+    /* flex-grow: 2; */
+}
+
+/* header nav ul li:first-child {
+    flex-basis: calc(100% / 4); 
+  }
+     */
+ /* header nav ul li:nth-child(5) {
+    flex-basis: calc(100% / 3); 
+  }
+  
+   */
+  

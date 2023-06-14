@@ -1,0 +1,40 @@
+header,main,footer{
+    padding: 20px;
+    border: 1px solid gray;
+}
+header{
+    height: 250px;
+    align-items: center;
+}
+header  ul{
+    height: 100%;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+}
+header ul li{
+    background: rgb(34, 129, 207);
+    color: white;
+    border-radius: 16%;
+    border: 2px solid rgb(128, 162, 212);
+    padding: 20px;
+    font-family: sans-serif;
+}
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cột cho hàng đầu tiên */
+    grid-template-rows: repeat(3, 1fr); /* 3 hàng */
+    grid-gap: 10px; /* khoảng cách giữa các phần tử */
+  }
+  
+  nav li:nth-child(n+5) {
+    grid-row: 2; /* các phần tử từ 5 đến 7 sẽ ở hàng thứ hai */
+  }
+  
+  nav li:nth-child(n+8) {
+    grid-row: 3; /* các phần tử từ 8 đến 10 sẽ ở hàng cuối cùng */
+  }
+  
+  

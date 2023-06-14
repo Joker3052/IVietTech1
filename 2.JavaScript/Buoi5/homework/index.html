@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form>
+        <label for="birthday">Ngày sinh:</label>
+        <input type="date" id="birthday" name="birthday">
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        // Gán sự kiện submit cho form
+        document.querySelector('form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Ngăn chặn sự kiện submit mặc định của form
+
+            var birthday = new Date(document.getElementById('birthday').value); // Lấy giá trị ngày sinh từ input
+            // Đặt giá trị giờ cho ngày sinh là 9 giờ sáng
+            // birthday.setHours(9);
+
+            // Tính từ ngày sinh đến hiện tại là bao nhiêu tuổi
+            var ageInYears = calculateAge(birthday);
+            if (ageInYears < 0) {
+                alert("lỗi!");
+                return;
+            }
+            else {
+                alert('Tuổi hiện tại: ' + ageInYears);
+
+                // Tính hôm đó là ngày thứ mấy
+                var dayOfWeek = getDayOfWeek(birthday);
+                alert('Hôm đó là ngày thứ: ' + dayOfWeek);
+
+                // Tính đến hiện tại là bao nhiêu tuần trôi qua
+                var weeksPassed = calculateWeeksPassed(birthday);
+                alert('Tuần trôi qua từ ngày sinh: ' + weeksPassed);
+
+                // Tính đến hiện tại là bao lâu, định dạng hh:mm:ss
+                var timePassed = calculateTimePassed(birthday);
+                alert('Thời gian trôi qua: ' + timePassed);
+
+                // Tính bao nhiêu ngày nữa đủ 50 tuổi, đó là thứ mấy, ngày tháng năm nào
+                var futureDate = calculateFutureDate(birthday, 50);
+                alert('Ngày nữa đủ 50 tuổi: ' + futureDate);
+            }
+
+        });
+
+        // Hàm tính tuổi từ ngày sinh đến hiện tại
+        function calculateAge(birthday) {
+            var today = new Date();
+            var age = today.getFullYear() - birthday.getFullYear();
+            var month = today.getMonth() - birthday.getMonth();
+            if (month < 0 || (month === 0 && today.getDate() < birthday.getDate())) {
+                age--;
+            }
+            return age;
+        }
+
+        // Hàm lấy ngày trong tuần từ ngày sinh
+        function getDayOfWeek(birthday) {
+            var days = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+            return days[birthday.getDay()];
+        }
+
+        // Hàm tính tuần trôi qua từ ngày sinh đến hiện tại
+        function calculateWeeksPassed(birthday) {
+            var today = new Date();
+            var timeDiff = today.getTime() - birthday.getTime();
+            var weeksPassed = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 7));
+            return weeksPassed;
+        }
+
+        // Hàm tính thời gian trôi qua từ ngày sinh đến hiện tại
+        function calculateTimePassed(birthday) {
+            var today = new Date();
+            var timeDiff = today.getTime() - birthday.getTime();
+            var secondsPassed = Math.floor(timeDiff / 1000);
+            var hoursPassed = Math.floor(secondsPassed / 3600);
+            var minutesPassed = Math.floor((secondsPassed % 3600) / 60);
+            secondsPassed = secondsPassed % 60;
+            return hoursPassed + ':' + minutesPassed + ':' + secondsPassed;
+        }
+
+        // Hàm tính ngày nữa đủ tuổi và trả về thông tin về thứ và ngày tháng năm
+        function calculateFutureDate(birthday, age) {
+            var futureDate = new Date(birthday);
+            futureDate.setFullYear(birthday.getFullYear() + age);
+            var dayOfWeek = getDayOfWeek(futureDate);
+            var formattedDate = futureDate.getDate() + '/' + (futureDate.getMonth() + 1) + '/' + futureDate.getFullYear();
+            return 'Ngày ' + formattedDate + ', thứ ' + dayOfWeek;
+        }
+    </script>
+</body>
+
+</html>

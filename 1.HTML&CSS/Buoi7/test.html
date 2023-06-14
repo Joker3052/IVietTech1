@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="demo.css">
+    <!-- <link rel="stylesheet" href="test.js"> -->
+</head>
+<body>
+    <ul class="tab-header">
+        <li class="active">Tab A</li>
+        <li>Tab B</li>
+        <li>Tab C</li>
+        <li>Tab C</li>
+        <li>Tab C</li>
+        <li>Tab C</li>
+        <li>Tab C</li>
+      </ul>
+      
+      <div class="tab-content">
+        <div class="tab-a active">Tab A content</div>
+        <div class="tab-b">Tab B content</div>
+        <div class="tab-c">Tab C content</div>
+      </div>
+      <script src="test.js"></script>
+ <!-- <script>
+    const tabHeaders = document.querySelectorAll('.tab-header li');
+const tabContents = document.querySelectorAll('.tab-content div');
+
+tabHeaders.forEach((tabHeader, index) => {
+  tabHeader.addEventListener('click', () => {
+    // Remove active class from all tab headers
+    tabHeaders.forEach(tabHeader => {
+      tabHeader.classList.remove('active');
+    });
+    // Add active class to clicked tab header
+    tabHeader.classList.add('active');
+
+    // Hide all tab contents
+    tabContents.forEach(tabContent => {
+      tabContent.style.display = 'none';
+    });
+    // Show tab content corresponding to clicked tab header
+    tabContents[index].style.display = 'block';
+  });
+});
+
+ </script>       -->
+</body>
+</html>

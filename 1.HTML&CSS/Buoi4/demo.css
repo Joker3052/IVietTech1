@@ -1,0 +1,65 @@
+section{
+    background: red;
+    /* height: 100px; */
+    /* nếu bên trên, dưới bằng nhau, trái phải bằng nhau */
+    padding: 10px 40px;
+}
+/* div{
+    height: 40px;
+    background-color: aqua;
+   padding: 10px 30px;
+}
+div:first-child{
+    margin-bottom: 30px;
+} */
+section > div{
+    height: 40px;
+    background-color: aqua;
+   padding: 10px 30px;
+}
+/* section >div:first-child{
+    margin-bottom: 30px;
+} */
+/* section >div:first-child{
+    max-width: 50px;
+    width: 200px;
+
+}
+section >div:last-child{
+    margin-top: 30px;
+} */
+.fe35{
+ float: left;
+ width: 50%;
+ background-color: blue;
+}
+.fe36{
+float: right;
+width: 10%;
+}
+.fe37{
+background-color: brown;
+clear: both;
+}
+
+/* .fe35{
+    height: 40px;
+    background-color: aqua;
+   padding: 10px 30px;
+}
+.fe36{
+    height: 40px;
+    background-color: aqua;
+   padding: 10px 30px;
+   margin-top: 30px;
+} */
+/* phần tử ảo */
+/* div::after{
+    content: '';
+    height: 30px;
+    display: block;
+    height: 40px;
+    background-color: aqua;
+   padding: 10px 30px;
+} */
+

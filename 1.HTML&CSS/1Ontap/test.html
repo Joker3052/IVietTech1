@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <title>Rating Star Example</title>
+  <style>
+    .rating-star {
+      font-size: 24px;
+      color: gray;
+      cursor: pointer;
+    }
+
+    .rating-star.active {
+      color: #FFC107;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Rating Star Example</h2>
+    <div class="rating-container">
+      <span class="rating-star" onclick="rateStar(1)">&#9733;</span>
+      <span class="rating-star" onclick="rateStar(2)">&#9733;</span>
+      <span class="rating-star" onclick="rateStar(3)">&#9733;</span>
+      <span class="rating-star" onclick="rateStar(4)">&#9733;</span>
+      <span class="rating-star" onclick="rateStar(5)">&#9733;</span>
+    </div>
+  </div>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Course
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </li>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    function rateStar(starIndex) {
+      var stars = document.getElementsByClassName("rating-star");
+      for (var i = 0; i < stars.length; i++) {
+        if (i < starIndex) {
+          stars[i].classList.add("active");
+        } else {
+          stars[i].classList.remove("active");
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

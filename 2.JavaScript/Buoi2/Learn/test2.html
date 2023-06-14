@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Example</title>
+</head>
+<body>
+  <input type="text" id="myInput">
+  <button id="myButton">Click me!</button>
+
+  <script>
+    function handleClick() {
+      var inputValue = document.getElementById("myInput").value;
+
+      // Kiểm tra nếu giá trị nhập vào không rỗng
+      if (inputValue.trim() !== "") {
+        alert("Giá trị được nhập vào: " + inputValue);
+      } else {
+        alert("Vui lòng nhập giá trị vào ô input!");
+      }
+    }
+
+    var button = document.getElementById("myButton");
+    button.onclick = handleClick;
+  </script>
+</body>
+</html>

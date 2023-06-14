@@ -1,0 +1,16 @@
+header,main,aside,article,footer,div{
+    padding: 20px;
+    border: 1px solid gray;
+}
+main{
+    display: flex;
+}
+aside{
+    background: aquamarine;
+}
+article{
+    background: blueviolet;
+}
+div{
+    background: red;
+}

@@ -1,0 +1,44 @@
+section.input {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+h2 {
+  margin: 20px 0 30px;
+}
+section.input form {
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  border-radius: 5px;
+}
+
+section.input .form-group {
+  text-align: left;
+}
+
+.invalid-feedback.show {
+  display: block !important;
+}
+
+button {
+  margin-top: 10px;
+}
+
+section.result {
+  width: 80%;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  padding: 30px;
+  margin: 40px auto;
+}
+section.result form .form-group {
+  margin: 20px 0;
+  padding-top: 6px;
+}
+
+section.result form .form-group:not(:first-child) {
+  border-top: 1px solid #ebebeb;
+}

@@ -1,0 +1,11 @@
+package com.example.fire_warning_app
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+
+class ScanImgHistoryActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_scan_img_history)
+    }
+}

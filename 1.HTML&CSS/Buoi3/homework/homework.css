@@ -1,0 +1,136 @@
+/* Thiết lập font chữ và màu sắc */
+body {
+    font-family: Arial, sans-serif;
+    /* color: purple; */
+    background-color: #fff;
+  }
+  
+  /* Thiết lập  header */
+  header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  
+  .logo {
+    display: block;
+    width: 170px;
+    height: auto;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  nav li {
+    margin-right: 1em;
+  }
+  
+  nav li:last-child {
+    margin-right: 0;
+  }
+  
+  nav li a {
+    color: #222;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+    font-weight: 500;
+    padding: 10px;
+    display: inline-block;
+  margin-right: 10px; /* Thêm khoảng cách 10px giữa các thẻ */
+  font-family: 'Roboto', sans-serif;
+  }
+  
+  nav li a:hover {
+    color: #ee3737;
+  }
+  
+  .btn_search {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .btn_search i {
+    font-size: 20px;
+    color: #222;
+    vertical-align: middle;
+  }
+  
+  .register-button {
+    background-color: #ee3737;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .register-button:hover {
+    background-color: #6b1b1b;
+  }
+  /* Thiết lập main */
+  main{
+    padding-top: 80px
+    /* margin-top: 20px; */
+  }
+  /* các khóa học */
+ 
+  section {
+    background-color: #e6e1e1;
+    padding: 20px;
+    margin: 0px 30px 50px 30px;
+    border: 1px solid black;
+    padding: 10px; 
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ccc;
+  /* padding: 20px; */
+  }
+  
+  span {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+  }
+  
+  h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+   /* Thiết lập   footer */
+  footer {
+    padding: 1em;
+    margin-top: 20px;
+    background-color: rgb(233, 63, 63);
+    color: rgb(253, 253, 253);
+  }

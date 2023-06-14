@@ -1,0 +1,65 @@
+/* Chỉnh font chữ cho toàn bộ trang */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Chỉnh màu nền cho header và footer */
+  header, footer {
+    background-color: #f2f2f2;
+  }
+  
+  /* Chỉnh kích thước và căn giữa tiêu đề trong header */
+  header h1 {
+    font-size: 36px;
+    text-align: center;
+  }
+  
+  /* Chỉnh kích thước và margin cho ảnh trong main */
+  .main-pic {
+    width: 750px;
+    height: 500px;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* Chỉnh kích thước và margin cho ảnh trong footer */
+  footer img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* Chỉnh kích thước và margin cho chữ mô tả ảnh trong main và footer */
+  .image-text {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Chỉnh font-size cho tiêu đề và nội dung trong main-right */
+  .main-right h1, .main-right p{
+    font-size: 24px;
+  }
+  
+  /* Chỉnh margin cho các cột trong footer */
+  .footer .col-xs-3 {
+    margin-bottom: 20px;
+  }
+  
+  /* Chia cột trong main khi màn hình bé hơn 992px */
+  @media (max-width: 992px) {
+    .main-left,
+    .main-right {
+      width: 100%;
+    }
+  }
+  
+  /* Chia cột trong footer khi màn hình bé hơn 992px */
+  @media (max-width: 992px) {
+    .footer .col-xs-3 {
+      width: 50%;
+    }
+  }

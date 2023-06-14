@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+      input {
+        width: 280px;
+        padding: 6px 10px;
+      }
+      button {
+        width: 280px;
+        padding: 6px 10px;
+      }
+      h3,
+      h4,
+      h5 {
+        margin-bottom: 0;
+      }
+      #sidebar {
+        width: 200px;
+        height: 100vh;
+        background-color: brown;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        position: fixed;
+        left: -210px;
+        top: 0;
+        transition: all 0.3s linear;
+      }
+
+      #sidebar.open {
+        left: 0;
+      }
+      h4:hover {
+        color: brown;
+        cursor: pointer;
+      }
+      #faqs .question div {
+        padding: 20px 10px;
+        border: 1px solid gray;
+        display: none;
+      }
+
+      #faqs .question div.open {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="faqs">
+      <div class="question">
+        <h4>What is FE35?</h4>
+        <div>FE35 is FE35</div>
+      </div>
+      <div class="question">
+        <h4>What is FE36?</h4>
+        <div>FE36 is FE36</div>
+      </div>
+      <div class="question">
+        <h4>What is FE37?</h4>
+        <div>FE37 is FE37</div>
+      </div>
+      <div class="question">
+        <h4>What is FE38?</h4>
+        <div>FE38 is FE38</div>
+      </div>
+    </section>
+    <script>
+      var $ = function (id) {
+        return document.getElementById(id);
+      };
+
+    //   var showAnswer = function () {
+    //     var h4 = this;
+    //     var answerWrapper = h4.nextElementSibling;
+    //     if (answerWrapper.getAttribute("class"))
+    //       answerWrapper.removeAttribute("class");
+    //     answerWrapper.setAttribute("class", "open");
+    //   };
+
+    var showAnswer = function () {
+      var h4 = this;
+      var answerWrapper = h4.nextElementSibling;
+      var allAnswerWrappers = document.getElementsByClassName("open");
+
+      // Ẩn tất cả các câu trả lời đang hiển thị
+      for (var i = 0; i < allAnswerWrappers.length; i++) {
+        allAnswerWrappers[i].classList.remove("open");
+      }
+
+      // Hiển thị câu trả lời cho câu hỏi được nhấn
+      answerWrapper.classList.add("open");
+    };
+
+      window.onload = function () {
+        var questions = $("faqs").getElementsByTagName("h4");
+        for (var i = 0; i < questions.length; i++) {
+          questions[i].onclick = showAnswer;
+        }
+      };
+    </script>
+  </body>
+</html>

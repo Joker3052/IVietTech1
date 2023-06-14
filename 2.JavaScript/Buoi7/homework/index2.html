@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Array</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <section class="input">
+    <h2>Array in Javascript</h2>
+    <form id="input-form">
+      <div class="form-group">
+        <label for="array">Enter your array</label>
+        <input type="text" class="form-control" id="array" placeholder="23,43,-12,34,1,0,-33,12" />
+        <div id="invalid-feedback" class="invalid-feedback">
+            Please enter at least 7 <b>numbers</b>, example: 2,4,-12,7,9,3,-3
+        </div>
+        <div id="integer-feedback" class="invalid-feedback">
+            Please enter only integers
+        </div>
+      </div>
+      <button type="submit" id="submit" class="btn btn-info">
+        Calculate
+      </button>
+    </form>
+  </section>
+  <section class="result">
+    <h5>Result</h5>
+    <form>
+      <div class="form-group">
+        <label for="your-array">Your array</label>
+        <input type="text" class="form-control" id="your-array" readonly />
+      </div>
+      <div class="form-group">
+        <label for="average">Average</label>
+        <input type="text" class="form-control" id="average" readonly />
+      </div>
+      <div class="form-group">
+        <label for="sorted-asc">Sorted in ascending order</label>
+        <input type="text" class="form-control" id="sorted-asc" readonly />
+      </div>
+      <div class="form-group">
+        <label for="sorted-desc">Sorted in descending order</label>
+        <input type="text" class="form-control" id="sorted-desc" readonly />
+      </div>
+      <div class="form-group">
+        <label for="max">Max</label>
+        <input type="text" class="form-control" id="max" readonly />
+      </div>
+      <div class="form-group">
+        <label for="min">Min</label>
+        <input type="text" class="form-control" id="min" readonly />
+      </div>
+      <div class="form-group">
+        <label for="inserted">Inserted average at index 4</label>
+        <input type="text" class="form-control" id="inserted" readonly />
+      </div>
+      <div class="form-group">
+        <label for="greater-than-average">Greater than average</label>
+        <input type="text" class="form-control" id="greater-than-average" readonly />
+      </div>
+      <div class="form-group">
+        <label for="less-than-average">Less than average</label>
+        <input type="text" class="form-control" id="less-than-average" readonly />
+      </div>
+    </form>
+  </section>
+
+  <script src="main.js"></script>
+  <script>
+    document.getElementById("input-form").addEventListener("submit", function (event) {
+      event.preventDefault(); // Ngăn chặn việc gửi form
+
+      // Lấy giá trị nhập vào
+      var input = document.getElementById("array").value;
+
+      // Chia chuỗi thành mảng các số
+      var numbers = input.split(",");
+
+      if (numbers.length < 7) {
+        if (numbers.some(num => !Number.isInteger(Number(num)))) {
+          document.getElementById("invalid-feedback").style.display = "block";
+          document.getElementById("integer-feedback").style.display = "block";
+          reset();
+          return;
+        } else {
+          document.getElementById("invalid-feedback").style.display = "block";
+          document.getElementById("integer-feedback").style.display = "none";
+          reset();
+          return;
+        }
+      } else if (numbers.length >= 7 && numbers.some(num => !Number.isInteger(Number(num)))) {
+        document.getElementById("invalid-feedback").style.display = "none";
+        document.getElementById("integer-feedback").style.display = "block";
+        reset();
+        return;
+      }
+      document.getElementById("invalid-feedback").style.display = "none";
+        document.getElementById("integer-feedback").style.display = "none";
+
+      // Chuyển đổi mảng thành kiểu số nguyên
+      var integerArray = numbers.map(num => parseInt(num));
+
+      // Tính giá trị trung bình
+      var average = calculateAverage(integerArray);
+
+      // Sắp xếp mảng theo thứ tự tăng dần
+      var sortedAscArray = sortArrayAscending(integerArray);
+
+      // Sắp xếp mảng theo thứ tự giảm dần
+      var sortedDescArray = sortArrayDescending(integerArray);
+
+      // Tìm giá trị lớn nhất
+      var max = findMaxValue(integerArray);
+
+      // Tìm giá trị nhỏ nhất
+      var min = findMinValue(integerArray);
+
+      // Chèn giá trị trung bình vào vị trí có chỉ số là 4
+      var insertedArray = insertAverage(integerArray, average);
+
+      // Lọc các giá trị lớn hơn giá trị trung bình
+      var greaterThanAverage = filterGreaterThanAverage(integerArray, average);
+
+      // Lọc các giá trị nhỏ hơn giá trị trung bình
+      var lessThanAverage = filterLessThanAverage(integerArray, average);
+
+      // Hiển thị kết quả
+      document.getElementById("your-array").value = numbers;
+      document.getElementById("average").value = average.toFixed(2);
+      document.getElementById("sorted-asc").value = sortedAscArray;
+      document.getElementById("sorted-desc").value = sortedDescArray;
+      document.getElementById("max").value = max;
+      document.getElementById("min").value = min;
+      document.getElementById("inserted").value = insertedArray;
+      document.getElementById("greater-than-average").value = greaterThanAverage;
+      document.getElementById("less-than-average").value = lessThanAverage;
+    });
+
+    // Function tính giá trị trung bình
+    function calculateAverage(array) {
+      var sum = array.reduce((total, num) => total + num, 0);
+      return sum / array.length;
+    }
+
+    // Function sắp xếp mảng theo thứ tự tăng dần
+    function sortArrayAscending(array) {
+      return array.slice().sort((a, b) => a - b);
+    }
+
+    // Function sắp xếp mảng theo thứ tự giảm dần
+    function sortArrayDescending(array) {
+      return array.slice().sort((a, b) => b - a);
+    }
+
+    // Function tìm giá trị lớn nhất
+    function findMaxValue(array) {
+      return Math.max(...array);
+    }
+
+    // Function tìm giá trị nhỏ nhất
+    function findMinValue(array) {
+      return Math.min(...array);
+    }
+
+    // Function chèn giá trị trung bình vào vị trí có chỉ số là 4
+    function insertAverage(array, average) {
+      var newArray = array.slice();
+      newArray.splice(4, 0, average);
+      return newArray;
+    }
+
+    // Function lọc các giá trị lớn hơn giá trị trung bình
+    function filterGreaterThanAverage(array, average) {
+      return array.filter(num => num > average);
+    }
+
+    // Function lọc các giá trị nhỏ hơn giá trị trung bình
+    function filterLessThanAverage(array, average) {
+      return array.filter(num => num < average);
+    }
+    function reset()
+    {
+        document.getElementById("your-array").value = "none";
+      document.getElementById("average").value = "none";
+      document.getElementById("sorted-asc").value = "none";
+      document.getElementById("sorted-desc").value = "none";
+      document.getElementById("max").value = "none";
+      document.getElementById("min").value = "none";
+      document.getElementById("inserted").value = "none";
+      document.getElementById("greater-than-average").value ="none";
+      document.getElementById("less-than-average").value = "none";
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t1</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body
+        {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <script src="index.js"></script>
+    <form class="form1" action="">
+        <h1 class="t1">Login</h1>
+        <label for="">Username</label>
+        <input type="text" name="username" id="name" ><br><br>
+        <!-- <script>document.getElementById('name').value=''</script> -->
+        <label for="">Password</label>
+        <input type="password" id="pass" name="password"><br><br>
+        <div class="t1">
+            <input id="submit" type="submit" value="OK"   >
+        <input  type="reset" value="Reset">   
+        </div>
+        </form>  
+        <script>
+         var button = document.getElementById("submit");
+            button.onclick = function(){
+                if(document.getElementById('name').value==''||document.getElementById('pass').value=='')
+                {
+                    alert("Vui lòng điền đầy đủ thông tin");
+                }
+                else{
+                    alert("Đăng nhập thành công");
+                }
+            }
+        </script> 
+        <script>
+           
+        </script>  
+    </table>
+</body>
+</html>

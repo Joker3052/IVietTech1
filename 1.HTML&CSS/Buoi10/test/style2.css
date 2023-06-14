@@ -1,0 +1,41 @@
+/* Mobile styles */
+@media (max-width: 480px) {
+    body {
+      font-size: 16px;
+    }
+    .header-mem {
+      display: none;
+    }
+    .logo {
+      text-align: center;
+    }
+    .menu-icon {
+      display: block;
+      text-align: right;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .menu-icon::before,
+    .menu-icon::after {
+      content: '';
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 5px 0;
+    }
+    .menu-icon::before {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .menu-icon::after {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    #menu-toggle:checked ~ .header-mem {
+      display: block;
+    }
+  }
+  
+  /* Rest of the styles */
+  
+  /* ... */
+  

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var total = 0;
+
+        var score1 = parseInt(prompt("Enter score 1:"));
+        total += score1;
+
+        var score2 = parseInt(prompt("Enter score 2:"));
+        total += score2;
+
+        var score3 = parseInt(prompt("Enter score 3:"));
+        total += score3;
+
+        var average = parseInt(total / 3);
+
+        document.write("<h1>The Test Scores</h1>");
+        document.write("<p>Score 1: " + score1 + "</p>");
+        document.write("<p>Score 2: " + score2 + "</p>");
+        document.write("<p>Score 3: " + score3 + "</p>");
+        document.write("<p>Average: " + average + "</p>");
+    </script>
+</body>
+</html>

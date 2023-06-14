@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style3_2.css">
+</head>
+<body>
+    <form>
+        <h2>Calc Miles Per Gallon</h2>
+      
+        <div class="form-group">
+          <label for="milesInput">Miles</label>
+          <input type="number" id="milesInput" placeholder="Miles">
+        </div>
+      
+        <div class="form-group">
+          <label for="gallonsInput">Gallons</label>
+          <input type="number" id="gallonsInput" placeholder="Gallons">
+        </div>
+      
+        <div class="form-group">
+          <label for="MPGIput">Miles per gallon</label>
+          <input type="number" id="MPGIput" placeholder="Miles per gallon" readonly>
+        </div>
+      
+        <button id="calcButton">Calc</button>
+      </form>
+      
+      <script>
+        var calcButton = document.getElementById("calcButton");
+        calcButton.onclick = function() {
+          calculateMPG();
+        };
+      
+        var milesInput = document.getElementById("milesInput");
+        var gallonsInput = document.getElementById("gallonsInput");
+      
+        milesInput.onkeydown = function(event) {
+          if (event.keyCode === 13) {
+            calculateMPG();
+          }
+        };
+      
+        gallonsInput.onkeydown = function(event) {
+          if (event.keyCode === 13) {
+            calculateMPG();
+          }
+        };
+      
+        function calculateMPG() {
+          var milesValue = parseFloat(document.getElementById("milesInput").value);
+          var gallonsValue = parseFloat(document.getElementById("gallonsInput").value);
+      
+          if (!isNaN(milesValue) && !isNaN(gallonsValue) && gallonsValue !== 0) {
+            var mpgValue = milesValue / gallonsValue;
+            document.getElementById("MPGIput").value = mpgValue.toFixed(2);
+          } else {
+            document.getElementById("MPGIput").value = "";
+            alert("Vui lòng nhập giá trị hợp lệ cho miles và gallons!");
+          }
+        }
+      </script>
+      
+  </body>
+  
+</html>

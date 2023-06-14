@@ -1,0 +1,29 @@
+/* Mobile styles */
+@media (max-width: 480px) {
+    body {
+      font-size: 16px;
+    }
+    .header-mem {
+      display: none;
+    }
+    .logo {
+      text-align: center;
+    }
+    .hamburger-menu {
+      display: block;
+      text-align: right;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .hamburger-menu .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 5px 0;
+    }
+  }
+  
+  /* Rest of the styles */
+  
+  /* ... */
+  

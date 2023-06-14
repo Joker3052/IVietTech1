@@ -1,0 +1,53 @@
+/* Style cho header */
+header {
+    background-color: #4588ec;
+    color: white;
+    padding: 20px;
+    position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  }
+  
+  header h1 {
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Style cho main */
+  main {
+    padding: 20px;
+  }
+  thead{
+    background-color: #7da7e6;
+    color: blue;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    /* border: 1px solid #ddd; */
+    padding: 8px;
+    text-align: left;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #68ec63;
+  }
+  
+  /* Style cho cột "Picture" */
+  table td:first-child {
+    width: 50px;
+    height: 50px;
+    /* border-radius: 50%; */
+    overflow: hidden; 
+  }
+  
+  table td:first-child img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  

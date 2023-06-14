@@ -1,0 +1,95 @@
+  
+body {
+    display: grid;
+    grid-template-areas:
+      "header header header header header header"
+      "sidebar-left main main main sidebar-right sidebar-right"
+      "footer footer footer footer footer footer";
+    grid-template-rows: auto 1fr auto; /* auto, 1fr, auto cho header, main và footer */
+    grid-template-columns: repeat(6, 1fr); /* 6 cột với tỷ lệ rộng bằng nhau */
+    height: 100vh; /* chiếm toàn bộ chiều cao của viewport */
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  header {
+    grid-area: header;
+    background-color: #ccc;
+    height: 50px;
+  }
+  
+  .sidebar-left {
+    grid-area: sidebar-left;
+    background-color: #ddd;
+    grid-column: 1 / 2; /* chiếm từ cột 2 đến cột 3 */
+  }
+  
+  .sidebar-right {
+    grid-area: sidebar-right;
+    background-color: #ddd;
+    grid-column: 6 / 7; /* chiếm từ cột 5 đến cột 6 */
+  }
+  
+  main {
+    grid-area: main;
+    background-color: #eee;
+    grid-column: 2/ 6; /* chiếm từ cột 3 đến cột 6 */
+  }
+  
+  footer {
+    grid-area: footer;
+    background-color: #ccc;
+    height: 50px;
+  }
+  
+  body > * {
+    border: 1px solid black;
+  }
+  
+  /* --------------------------- */
+  .tab-header ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    padding: 0;
+}
+
+.tab-header li {
+    margin-right: 20px;
+    color: blue;
+}
+.card {
+    width: calc(30% - 10px);
+    margin: 10px;
+    float: left;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+  div.tab-header ul li:hover {
+    border-bottom: 2px solid rgb(255, 38, 0); /* Tạo đường gạch chân */
+    color: rgb(255, 38, 0); /* Đổi màu chữ thành màu xanh */
+  }
+  
+  div.tab-header ul li:active {
+    background-color: gray; /* Đổi màu nền thành xám khi active */
+    color: white; /* Đổi màu chữ thành màu trắng */
+  }
+  div.tab-header ul li {
+    transition: border-bottom 0.3s ease-in-out; /* Thiết lập transition */
+  }
+ 
+  /* ---------------------------- */
+  /* .tab-content {
+    display: none;
+  }
+   */
+   div.tab-header ul li.active {
+    color: red;
+    text-decoration: underline red;
+  }
+  

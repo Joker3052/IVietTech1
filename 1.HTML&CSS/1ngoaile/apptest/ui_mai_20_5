@@ -1,0 +1,147 @@
+package com.example.fire_warning_app
+
+import android.content.*
+import android.content.Context.MODE_PRIVATE
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.*
+import androidx.fragment.app.Fragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+
+class UI_main : Fragment() {
+
+    private lateinit var userApi: UserApi
+    private lateinit var sensorApi: SensorApi
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var handler: Handler
+    private val delayMillis2: Long = 2000L
+    private val delayMillis1: Long = 1000L
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.activity_ui_main, container, false)
+        sharedPreferences = requireActivity().getSharedPreferences("MY_PREFS_NAME", MODE_PRIVATE)
+
+        // Khởi tạo UserApi
+        val userRetrofit = Retrofit.Builder()
+            .baseUrl("https://anor.pythonanywhere.com/user/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        userApi = userRetrofit.create(UserApi::class.java)
+
+        // Khởi tạo SensorApi
+        val sensorRetrofit = Retrofit.Builder()
+            .baseUrl("https://anor.pythonanywhere.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        sensorApi = sensorRetrofit.create(SensorApi::class.java)
+
+        val email = sharedPreferences.getString("email", null)
+
+        val etUsername: TextView = view.findViewById(R.id.et_user_name)
+        val smokeTextView: TextView = view.findViewById(R.id.sensor_gas)
+        val temperatureTextView: TextView = view.findViewById(R.id.sensor_temp)
+
+        handler = Handler(Looper.getMainLooper())
+
+        userApi.getUsers().enqueue(object : Callback<List<User>> {
+            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+                val users = response.body()
+                if (users != null) {
+                    // Tìm kiếm người dùng có email cần tìm
+                    val emailToFind = email
+                    val foundUser = users.find { it.email == emailToFind }
+                    if (foundUser != null) {
+                        // Lấy thông tin người dùng
+                        val userId = foundUser.id
+                        val username = foundUser.username
+                        val password = foundUser.password
+                        // Tiếp tục xử lý tại đây
+                        val editor = sharedPreferences.edit()
+                        editor.putString("username", username)
+                        editor.putString("password", password)
+                        editor.apply()
+
+                        etUsername.text = username
+                    }
+                } else {
+                    Toast.makeText(requireContext(), "failed?", Toast.LENGTH_SHORT).show()
+                }
+                // Gọi lại API sau 2 giây
+                handler.postDelayed({
+                    userApi.getUsers().enqueue(this)
+                }, delayMillis2)
+            }
+
+            override fun onFailure(call: Call<List<User>>, t: Throwable) {
+                // Xử lý lỗi tại đây
+
+                // Gọi lại API sau 2 giây khi có lỗi xảy ra
+                handler.postDelayed({
+                    userApi.getUsers().enqueue(this)
+                }, delayMillis2)
+            }
+        })
+
+        sensorApi.getSensorData().enqueue(object : Callback<SensorApi.SensorData> {
+            override fun onResponse(
+                call: Call<SensorApi.SensorData>,
+                response: Response<SensorApi.SensorData>
+            ) {
+                if (response.isSuccessful) {
+                    val sensorData = response.body()
+                    if (sensorData != null) {
+                        // Xử lý dữ liệu cảm biến ở đây
+                        val fireDetectedValue = sensorData.fireDetectedValue
+                        val smokeValue = sensorData.smokeValue
+                        val temperatureValue = sensorData.temperatureValue
+
+                        // Lưu giá trị smokeValue và temperatureValue vào SharedPreferences
+                        val editor = sharedPreferences.edit()
+                        editor.putFloat("smokeValue", smokeValue)
+                        editor.putFloat("temperatureValue", temperatureValue)
+                        editor.putBoolean("fireDetectedValue", fireDetectedValue)
+                        editor.apply()
+
+                        // Tiếp tục xử lý và cập nhật giao diện
+                        // Ví dụ: Hiển thị giá trị smokeValue và temperatureValue lên TextView
+                        smokeTextView.text = smokeValue.toString() + " V"
+                        temperatureTextView.text = temperatureValue.toString() + " ℃"
+                    }
+                } else {
+                    // Xử lý lỗi khi không thành công
+                    Toast.makeText(requireContext(), "sensor failed", Toast.LENGTH_SHORT).show()
+                }
+
+                // Gọi lại API sau 1 giây
+                handler.postDelayed({
+                    sensorApi.getSensorData().enqueue(this)
+                }, delayMillis1)
+            }
+
+            override fun onFailure(call: Call<SensorApi.SensorData>, t: Throwable) {
+                // Xử lý lỗi kết nối
+                Toast.makeText(requireContext(), "Sensor failed", Toast.LENGTH_SHORT).show()
+
+                // Gọi lại API sau 1 giây khi có lỗi xảy ra
+                handler.postDelayed({
+                    sensorApi.getSensorData().enqueue(this)
+                }, delayMillis1)
+            }
+        })
+
+        return view
+    }
+}

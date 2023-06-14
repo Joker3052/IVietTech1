@@ -1,0 +1,221 @@
+/* Thiết lập font chữ và màu sắc chung */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Thiết lập định dạng cho header */
+  header {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    background-color: #eee;
+  
+  }
+  
+  .logo img {
+    width: 50px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .header-mem .menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header-mem .menu li a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: gray;
+  }
+  #home {
+    color: rgb(0, 0, 0);
+ }
+  
+  /* .header-mem nav li a:first-child {
+    margin-right: 20px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  } */
+  .header-mem .menu li a:hover{
+    color: black;
+  }
+  /* Thiết lập định dạng cho main */
+main {
+  padding: 20px;
+}
+
+/* Thiết lập định dạng cho main-top */
+.main-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: #f5f5f5;
+}
+
+.main-left {
+  text-align: center;
+}
+
+.main-left h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.main-left h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.main-left h5 {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.main-left button {
+  background-color: #e9de48;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.main-left p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.main-right img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+/* Thiết lập định dạng cho main-bottom */
+.main-bottom {
+  padding: 50px;
+}
+
+.main-bottom h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.main-bottom p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  column-count: 2;
+  column-gap: 20px;
+}
+
+  
+  /* Thiết lập định dạng cho footer */
+  footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: #eee;
+  }
+  
+  .footer-left i {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #333;
+  }
+  
+  .menu-icon,
+  .menu-toggle {
+    display: none;
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      font-size: 16px;
+    }
+    .menu-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      background-color: #ddd;
+      color: #333;
+      cursor: pointer;
+    }
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .menu li {
+        margin-bottom: 10px;
+      }
+    .menu {
+      display: none;
+      margin-top: 10px;
+      flex-direction: column;
+      background-color: white;
+    }
+    .menu-toggle:checked + label.menu-icon + nav {
+      display: block;
+    }
+    .menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+    .menu li {
+      margin-bottom: 10px;
+    }
+    .menu li a {
+      text-decoration: none;
+      color: gray;
+    }
+  }
+  
+  /* Tablet styles */
+  @media (min-width: 481px) and (max-width: 768px) {
+    body {
+      font-size: 18px;
+    }
+    .menu-toggle {
+      pointer-events: none;
+    }
+    .menu {
+      display: block;
+      text-align: center;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    body {
+      font-size: 20px;
+    }
+    .menu-toggle {
+      pointer-events: none;
+    }
+    .menu {
+      display: block;
+      text-align: right;
+    }
+  }
+  @media (max-width: 768px){
+    .main-top{
+      flex-direction: column;
+    }
+  }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThanhPhuong</title>
+    <link rel="stylesheet" href="index.css">
+    <script >
+       function titleCase(string) {
+  var sentence = string.toLowerCase().split(" ");
+  for(var i = 0; i< sentence.length; i++){
+     sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+  }
+   return sentence.join(" ");
+}
+        function doichuhoa()
+        {
+            var ktu= document.f1.t1.value //ki tu abc
+            document.f1.t2.value=titleCase(ktu);
+        }
+        
+    </script>
+</head>
+<body onload="document.f1.t1.focus()";  >
+    <form class="f1" name=f1 action="xulichuhoa.jsp" method="post">
+        <input type="text" name="t1" value="" onblur="doichuhoa()">  <br><br>
+        <input type="text" name="t2" value="" >
+    </form>
+   
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <script>
+            function registerForm() {
+                var email = document.getElementById("email").value;
+                var phone = document.getElementById("phone").value;
+                var country = document.getElementById("country").value;
+                var contactMethod = document.querySelector('input[name="contact-method"]:checked');
+                var termsOfService = document.getElementById("terms-of-service").checked;
+        
+                var errorMessages = [];
+        
+        
+        var errorText = "<h3>Please review your entries and complete all required fields:</h3><ul>";
+        errorText += "<li>Email: " + (email !== "" ? email : "Required field") + "</li>";
+        errorText += "<li>Phone: " + (phone !== "" ? phone : "Required field") + "</li>";
+        errorText += "<li>Country: " + (country !== "" ? country : "Required field") + "</li>";
+        errorText += "<li>Contact: " + (contactMethod !== null ? contactMethod.value : "Required field") + "</li>";
+        errorText += "<li>Terms: " + (termsOfService ? "Accepted" : "Required field") + "</li>";
+        errorText += "</ul>";
+        document.getElementById("error-message").innerHTML = errorText;
+        
+                if (errorMessages.length === 0) {
+                    // Submit the form or perform any other desired action
+                    // document.getElementById("register-form").submit();
+                }
+            }
+        </script>
+        
+        <form id="register-form" action="/register" method="POST">
+            <h2>Register for an Account</h2>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="phone">Mobile Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div>
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="">Select an option</option>
+                    <option value="Vietnam">Vietnam</option>
+                    <option value="USA">USA</option>
+                    <option value="Canada">Canada</option>
+                    <option value="UK">UK</option>
+                </select>
+            </div>
+            <div>
+                <label>Contact me by:</label>
+                <input type="radio" id="contact-text" name="contact-method" value="text" required>
+                <label for="contact-text">Text</label>
+                <input type="radio" id="contact-email" name="contact-method" value="email" required>
+                <label for="contact-email">Email</label>
+                <input type="radio" id="contact-donot" name="contact-method" value="donot" required>
+                <label for="contact-donot">Don't contact me</label>
+            </div>
+            <div>
+                <label for="terms-of-service">Terms of Service:</label>
+                <input type="checkbox" id="terms-of-service" name="terms-of-service" required>
+                <label for="terms-of-service">I accept</label>
+            </div>
+            <div>
+                <input type="button" value="Register" onclick="registerForm()">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+        
+        <div id="error-message"></div>   
+    </main>
+   <footer></footer>
+</body>
+</html>

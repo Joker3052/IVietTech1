@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+    border: 1px solid #000;
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto; /* Căn giữa theo chiều ngang */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px; /* Chiều cao của toàn bộ màn hình */
+  }
+    </style>
+</head>
+<body>
+    <script>
+       function CalcForm() {
+    var sales = parseInt(document.getElementById("sales").value);
+    var salary = 0;
+    var tax = 0;
+    
+
+    if (sales < 5000) {
+        salary = sales * 0.05;
+    } else if (sales >= 5000 && sales <= 10000) {
+        salary = sales * 0.1;
+    } else if (sales > 10000) {
+        salary = sales * 0.15;
+    }
+
+    if (salary >= 1000) {
+        tax = salary * 0.1;
+        var tax_per = "10%";
+    }
+    else{
+        tax=0;
+        var tax_per = "0%";
+    }
+
+    document.getElementById("salary").value = salary;
+    document.getElementById("tax").value = tax_per;
+    document.getElementById("Total").value = salary - tax;
+}
+
+function resetForm() {
+    document.getElementById("sales").value = "";
+    document.getElementById("salary").value = "";
+    document.getElementById("tax").value = "";
+    document.getElementById("Total").value = "";
+}
+    </script>
+    <form id="" action="" method="POST">
+        <h2>Register for an Account</h2>
+        <div >
+            <label for="">Sales</label><br>
+            <input type="number" id="sales"  required>     
+        </div>
+        <div >
+            <label for="">Salary</label><br>
+            <input type="number" id="salary"  disabled>     
+        </div>
+        <div >
+            <label for="">Tax</label><br>
+            <input type="text" id="tax"  disabled>
+        </div>
+        <div >
+            <label for="">Total</label><br>
+            <input type="number" id="Total"  disabled>     
+        </div>
+
+        <div>
+            <input type="button" value="Submit" onclick="CalcForm()">
+            <input type="reset" value="Clear" onclick="resetForm()">
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    
+</head>
+<body>
+    <link rel="stylesheet" href="">
+    <table  >
+        <h1 class="tb2" data-index="0">trang chủ</h1>
+        <tr><td><a class="tb2" data-index="1" href="">Mục 1</a></td></tr>
+        <tr><td><a class="tb2" data-index="2" href="">Mục 2</a></td></tr>
+        <tr><td><a class="tb2" data-index="3" href="">Mục 3</a></td></tr>
+        <tr><td><a class="tb2" data-index="4" href="">Mục 4</a></td></tr>
+        <tr><td><a class="tb2" data-index="5" href="">Mục 5</a></td></tr>
+        </table>
+    </body>
+    <script type="text/javascript">
+         const elements = document.querySelectorAll('.tb2')
+         console.log(elements)
+         for (let element of elements) {
+            element.addEventListener("click", function(){
+                window.top.postMessage(element.dataset.index, "*")
+            })
+         }
+  </script>
+</html>

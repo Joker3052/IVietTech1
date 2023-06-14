@@ -1,0 +1,221 @@
+/* Global styles */
+
+/* Thiết lập font chữ và màu sắc chung */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Thiết lập định dạng cho header */
+  header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    background-color: #eee;
+  }
+  
+  .logo img {
+    width: 50px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .header-mem nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header-mem nav li a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: gray;
+  }
+  #home {
+    color: rgb(0, 0, 0);
+ }
+  /* .header-mem nav li a:first-child {
+    margin-right: 20px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  } */
+  .header-mem nav li a:hover{
+    color: black;
+  }
+  /* Thiết lập định dạng cho main */
+  /* Styles for main container */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+  }
+  
+  /* Styles for left container */
+  /* .main-left {
+    width: 30%;
+    margin-right: 20px;
+  } */
+  .main-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .main-left {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .main-right {
+    flex: 1;
+  }
+  .main-left h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .main-left p {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: justify;
+  }
+  
+  /* Styles for right container */
+  /* .main-right {
+    width: 35%;
+  } */
+  
+  /* Styles for form */
+  form {
+    background-color: #fff;
+    padding: 20px;
+  }
+  
+  form input,
+  form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form input[type="submit"] {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    width: 50px;
+    margin-left: 90%;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+  
+  /* Thiết lập định dạng cho footer */
+  footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    background-color: #eee;
+  }
+  
+  .footer-left i {
+    font-size: 30px;
+    margin-right: 10px;
+    color: #333;
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      font-size: 16px;
+    }
+    .header-mem {
+      display: none; 
+    }
+    .logo {
+      text-align: center; 
+    }
+    
+  }
+  
+  /* Tablet styles */
+  @media (min-width: 481px) and (max-width: 768px) {
+    
+    body {
+      font-size: 18px;
+    }
+    .header-mem {
+      display: block; /* show the navigation menu on medium screens */
+      text-align: center; /* center the menu items */
+    }
+    
+  }
+  
+  @media (min-width: 769px) {  
+    body {
+      font-size: 20px;
+    }
+    .header-mem {
+      display: block; 
+      text-align: right; 
+    }
+  }
+
+/* form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+  }
+  
+  select {
+    margin-top: 10px;
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  
+  input[type="submit"] {
+    padding: 10px 20px;
+    background-color: rgb(102, 109, 116);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #2E8B57;
+  }
+   */

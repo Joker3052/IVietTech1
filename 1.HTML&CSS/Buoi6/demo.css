@@ -1,0 +1,57 @@
+header,main,aside,article,footer{
+    padding: 20px;
+    border: 1px solid gray;
+}
+div{
+    padding: 20px;
+    border: 1px solid gray;
+}
+main{
+    display: flex;
+}
+aside{
+    background: aquamarine;
+}
+article{
+    background: blueviolet;
+}
+div{
+    background: red;
+    flex-shrink: 0;
+}
+header{
+    height: 100px;
+}
+header ul{
+    height: 100%;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-around;
+    /* align-items: flex-end; */
+}
+header ul li{
+    
+    padding: 15px;
+    background: gray;
+    color: rgb(255, 255, 255);
+    flex-grow: 1;
+}
+header ul li:first-child{
+    flex-grow: 2;
+    order: 1;
+}
+header ul li:first-child{
+    order:4
+}
+header ul li:nth-child(3){
+    order:2
+}
+header ul li:nth-child(2){
+    order:1
+}
+header ul li:not(:last-child)
+{
+    margin-right: 20px;
+}

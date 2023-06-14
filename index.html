@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="input">
+      <h2>Array in Javascript</h2>
+      <form id="input-form">
+        <div class="form-group">
+          <label for="array">Enter your array</label>
+          <input
+            type="text"
+            class="form-control"
+            id="array"
+            placeholder="23,43,-12,34,1,0,-33,12"
+          />
+          <div id="invalid-feedback" class="invalid-feedback">
+            Please enter at least 7 <b>numbers</b>, example: 2,4,-12,7,9,3,-3
+          </div>
+         
+        </div>
+        <button type="submit" id="submit" class="btn btn-info">
+          Calculate
+        </button>
+      </form>
+    </section>
+    <section class="result">
+      <h5>Result</h5>
+      <form>
+        <div class="form-group">
+          <label for="your-array">Your array</label>
+          <input type="text" class="form-control" id="your-array" readonly />
+        </div>
+        <div class="form-group">
+          <label for="dtb">Gia tri trung binh</label>
+          <input type="text" class="form-control" id="dtb" readonly />
+        </div>
+        <div class="form-group">
+          <label for="tangdan">Sap xep theo thu tu tang dan</label>
+          <input type="text" class="form-control" id="tangdan" readonly />
+        </div>
+        <div class="form-group">
+          <label for="giamdan">Sap xep theo thu tu giam dan</label>
+          <input type="text" class="form-control" id="giamdan" readonly />
+        </div>
+        <div class="form-group">
+          <label for="max">Gia tri cua phan tu lon nhat (Max)</label>
+          <input type="text" class="form-control" id="max" readonly />
+        </div><div class="form-group">
+          <label for="min">Gia tri cua phan tu nho nhat (Min)</label>
+          <input type="text" class="form-control" id="min" readonly />
+        </div>
+        <div class="form-group">
+          <label for="chen-dtb">Chen gia tri trung binh vao phan tu thu 4</label>
+          <input type="text" class="form-control" id="chen-dtb" readonly />
+        </div>
+        <div class="form-group">
+          <label for="lon-dtb">Array co cac phan tu lon hon gia tri trung binh</label>
+          <input type="text" class="form-control" id="lon-dtb" readonly />
+        </div><div class="form-group">
+          <label for="nho-dtb">Array co cac phan tu nho hon gia tri trung binh</label>
+          <input type="text" class="form-control" id="nho-dtb" readonly />
+        </div>
+      </form>
+    </section>
+  </body>
+
+  <script>
+   var $ = function(id) {
+  return document.getElementById(id);
+};
+
+var calculate = function(e) {
+  e.preventDefault(); // Ngăn chặn form submit
+  var arrayInput = $('array');
+  var yourArrayInput = $('your-array');
+  var dtbInput = $('dtb');
+  var tangDanInput = $('tangdan');
+  var giamDanInput = $('giamdan');
+  var maxInput = $('max');
+  var minInput = $('min');
+  var chenDTBInput = $('chen-dtb');
+  var lonDTBInput = $('lon-dtb');
+  var nhoDTBInput = $('nho-dtb');
+  
+  var arrayString = arrayInput.value.trim();
+  var array = arrayString.split(',');
+  
+  // Kiểm tra độ dài mảng
+  if (array.length < 7) {
+    $('invalid-feedback').style.display = 'block';
+    return;
+  } else {
+    $('invalid-feedback').style.display = 'none';}
+  
+  // Kiểm tra số nguyên và phần tử cuối không phải dấu phẩy
+  for (var i = 0; i < array.length; i++) {
+    if((i===array.length-1 && parseInt(array[i]) === ",") || isNaN(parseInt(array[i]))){
+      $('invalid-feedback').style.display = 'block';
+    return;
+    } else {
+      $('invalid-feedback').style.display = 'none';}
+  
+  }
+
+  // Tính giá trị trung bình
+  var sum = 0;
+  for (var i = 0; i < array.length; i++) {
+    sum += parseInt(array[i]);
+  }
+  var dtb = sum / array.length;
+  
+  // Sắp xếp mảng theo thứ tự tăng dần và giảm dần
+  var tangDan = array.slice().sort(function(a, b) { return a - b; });
+  var giamDan = array.slice().sort(function(a, b) { return b - a; });
+  
+  // Tìm giá trị lớn nhất và nhỏ nhất
+  var max = Math.max.apply(null, array);
+  var min = Math.min.apply(null, array);
+  
+  // Chèn giá trị trung bình vào phần tử thứ 4 của mảng
+  array.splice(3, 0, dtb);
+  var chenDTB = array.join(',');
+  
+  // Tạo mảng các phần tử lớn hơn giá trị trung bình và nhỏ hơn giá trị trung bình
+  var lonDTB = array.filter(function(num) { return num > dtb; }).join(',');
+  var nhoDTB = array.filter(function(num) { return num < dtb; }).join(',');
+
+  function max(arr){
+    return arr = Math.max.apply(null, array);
+  }
+  function min(arr){
+    return arr = Math.min.apply(null, array);
+  }
+  // Hiển thị kết quả trên form
+  yourArrayInput.value = arrayString;
+  dtbInput.value = dtb;
+  tangDanInput.value = tangDan.join(',');
+  giamDanInput.value = giamDan.join(',');
+  maxInput.value = max;
+  minInput.value = min;
+  chenDTBInput.value = chenDTB;
+  lonDTBInput.value = lonDTB;
+  nhoDTBInput.value = nhoDTB;
+};
+
+$('input-form').addEventListener('submit', calculate);
+
+  </script>
+</html>

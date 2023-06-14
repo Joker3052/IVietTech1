@@ -1,0 +1,60 @@
+/* Định dạng cho header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999; */
+}
+
+/* Định dạng cho main */
+/* main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+} */
+
+/* Định dạng cho side bar left và side bar right */
+main {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    height: 70%;
+    padding: 10px;
+  }
+  
+  aside {
+    width: 25%;
+    height: 100%;
+    background-color: pink;
+  }
+  
+  article {
+    width: 50%;
+  }
+  
+  /* Khi màn hình có chiều rộng nhỏ hơn 600px, hiển thị các phần tử theo chiều dọc */
+  @media screen and (max-width: 600px) {
+    main {
+      flex-direction: column;
+    }
+    aside, article, aside {
+      width: 100%;
+    }
+  }
+
+/* Định dạng cho footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+html, body {
+    height: 100%;
+}
