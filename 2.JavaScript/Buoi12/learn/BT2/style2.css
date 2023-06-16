@@ -1,0 +1,128 @@
+/* style.css */
+
+/* Chọn phần tử h1 và thiết lập kiểu chữ, căn giữa và khoảng cách */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Chọn phần tử có id loginContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #loginContainer {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Chọn phần tử h2 trong #loginContainer và thiết lập kiểu chữ */
+  #loginContainer h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Chọn phần tử form trong #loginContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #loginContainer form {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Chọn phần tử label trong #loginContainer và thiết lập kiểu chữ */
+  #loginContainer label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Chọn phần tử input trong #loginContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #loginContainer input {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Chọn phần tử button trong #loginContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #loginContainer button {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Chọn phần tử có id registerContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #registerContainer {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Chọn phần tử h2 trong #registerContainer và thiết lập kiểu chữ */
+  #registerContainer h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Chọn phần tử form trong #registerContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #registerContainer form {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Chọn phần tử label trong #registerContainer và thiết lập kiểu chữ */
+  #registerContainer label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Chọn phần tử input trong #registerContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #registerContainer input {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Chọn phần tử button trong #registerContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #registerContainer button {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Chọn phần tử có id mainContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #mainContainer {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Chọn phần tử form trong #mainContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #mainContainer form {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Chọn phần tử label trong #mainContainer và thiết lập kiểu chữ */
+  #mainContainer label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Chọn phần tử input trong #mainContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #mainContainer input {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Chọn phần tử button trong #mainContainer và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #mainContainer button {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  /* Chọn phần tử th trong #studentList và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #studentList th {
+    text-align: center;
+    padding: 5px;
+  }
+  
+  /* Chọn phần tử td trong #studentList và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #studentList td {
+    text-align: center;
+    padding: 5px;
+  }
+  
+  /* Chọn phần tử có id logoutButton và thiết lập kiểu chữ, căn giữa và khoảng cách */
+  #logoutButton {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

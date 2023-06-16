@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Information</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Student Information</h1>
+  
+  <div id="loginContainer">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username"><br>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password"><br>
+      
+      <input type="submit" id="loginBtn" value="Login">
+    </form>
+    <button id="switchToRegister">Register</button> <!-- Add Register button -->
+  </div>
+  
+  <div id="registerContainer" style="display: none;"> <!-- Add Register container -->
+    <h2>Register</h2>
+    <form id="registerForm">
+      <label for="registerUsername">Username:</label>
+      <input type="text" id="registerUsername"><br>
+      
+      <label for="registerPassword">Password:</label>
+      <input type="password" id="registerPassword"><br>
+      
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword"><br>
+      
+      <input type="submit" id="RegisterBtn" value="Register">
+    </form>
+    <button id="switchToLogin">Login</button> <!-- Add Login button -->
+  </div>
+  
+  <div id="mainContainer" style="display: none;">
+    <form id="studentForm">
+      <label for="id">ID:</label>
+      <input type="text" id="id"><br>
+      
+      <label for="name">Name:</label>
+      <input type="text" id="name"><br>
+      
+      <label for="birthday">Birthday:</label>
+      <input type="date" id="birthday"><br>
+      
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber"><br>
+      
+      <input type="submit" value="Submit">
+    </form>
+    
+    <h2>Student List</h2>
+    <table id="studentList">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Birthday</th>
+        <th>Phone Number</th>
+        <th>Delete</th>
+      </tr>
+    </table>
+    
+    <button id="logoutButton">Logout</button>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
